@@ -1,0 +1,5 @@
+//I don't know if this is the solution but this is what I understand from reading the exercise
+select wording, count(*) * 100/(Select count(*) from matter) from matter group by wording;
+
+//I don't know if this is the solution but this is what I understand from reading the exercise
+select sum(coef) from matter;

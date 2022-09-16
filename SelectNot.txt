@@ -1,0 +1,24 @@
+select count(*) from test;
+
+select score, name, firstname from notation, student where notation.numstud = student.numstud;
+
+select score, name, firstname, matter.wording from notation, student, matter, test where notation.numstud = student.numstud and matter.codemat = test.codemat and test.numtest = notation.numtest;
+
+select score from notation where score >= 10;
+
+select firstname, name from student, notation where notation.score = 20;
+
+select firstname, name from student, notation where notation.score = 20 group by name;
+
+select name, firstname, avg(score) from notation, student where student.numstud = notation.numstud group by name;
+
+select * from test where testdate between '2014-01-01' and '2014-06-30';
+
+select numtest, testdate, place, matter.wording from test, matter where matter.codemat = test.codemat;
+
+select name, firstname, avg(score) from student, notation where student.numstud = notation.numstud group by name order by avg(score) desc;
+
+select wording, avg(score) from matter, notation, test where matter.codemat = test.codemat and test.numtest = notation.numtest group by wording having count(test.numtest) > 1;
+
+//I couldn't get the select right, this is all that I got. I didn' have more time on the test either
+select test.numtest, avg(notation.score) from test, notation, matter, student where student.numstud = notation.numstud and test.numtest = notation.numtest and test.codemat = matter.codemat and  group by test.numtest;
